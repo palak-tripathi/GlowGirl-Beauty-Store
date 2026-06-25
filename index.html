@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Glow Girl - Makeup Store</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff0f7;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---- TOP BAR ---- */
+    .topbar {
+      background-color: #c2185b;
+      color: white;
+      text-align: center;
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    /* ---- NAVBAR ---- */
+    .navbar {
+      background-color: white;
+      border-bottom: 2px solid #f8bbd0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 40px;
+    }
+
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #880e4f;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    .navbar ul li a {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .navbar ul li a:hover {
+      color: #c2185b;
+    }
+
+    .navbar .nav-right {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .navbar .nav-right span {
+      cursor: pointer;
+    }
+
+    .navbar .nav-right span:hover {
+      color: #c2185b;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      background-color: #fce4ec;
+      padding: 60px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 36px;
+      color: #880e4f;
+      margin-bottom: 12px;
+    }
+
+    .hero-text p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 24px;
+      max-width: 400px;
+      line-height: 1.6;
+    }
+
+    .hero-text .btn {
+      background-color: #c2185b;
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .hero-text .btn:hover {
+      background-color: #880e4f;
+    }
+
+    .hero-img {
+      background-color: #f48fb1;
+      width: 260px;
+      height: 260px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+
+    /* ---- SECTION TITLE ---- */
+    .section-title {
+      text-align: center;
+      font-size: 22px;
+      color: #880e4f;
+      margin-bottom: 28px;
+      font-weight: bold;
+    }
+
+    /* ---- CATEGORIES ---- */
+    .categories {
+      padding: 50px 40px;
+      background-color: white;
+    }
+
+    .cat-grid {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cat-box {
+      background-color: #fce4ec;
+      border: 1px solid #f8bbd0;
+      border-radius: 8px;
+      padding: 22px 28px;
+      text-align: center;
+      width: 140px;
+      cursor: pointer;
+    }
+
+    .cat-box:hover {
+      background-color: #f8bbd0;
+    }
+
+    .cat-box .cat-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .cat-box p {
+      font-size: 13px;
+      color: #880e4f;
+      font-weight: bold;
+    }
+
+    /* ---- PRODUCTS ---- */
+    .products {
+      padding: 50px 40px;
+      background-color: #fff0f7;
+    }
+
+    .prod-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .prod-card {
+      background-color: white;
+      border: 1px solid #f8bbd0;
+      border-radius: 8px;
+      width: 200px;
+      overflow: hidden;
+    }
+
+    .prod-card:hover {
+      border-color: #c2185b;
+    }
+
+    .prod-card .prod-img {
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      background-color: #fce4ec;
+    }
+
+    .prod-card .prod-info {
+      padding: 12px;
+    }
+
+    .prod-card .prod-info .brand {
+      font-size: 11px;
+      color: #999;
+      margin-bottom: 4px;
+    }
+
+    .prod-card .prod-info .name {
+      font-size: 13px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .prod-card .prod-info .price {
+      font-size: 14px;
+      color: #c2185b;
+      font-weight: bold;
+    }
+
+    .prod-card .prod-info .old-price {
+      font-size: 12px;
+      color: #aaa;
+      text-decoration: line-through;
+      margin-right: 6px;
+    }
+
+    .prod-card .add-btn {
+      display: block;
+      width: 100%;
+      background-color: #c2185b;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 13px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .prod-card .add-btn:hover {
+      background-color: #880e4f;
+    }
+
+    /* ---- OFFER BANNER ---- */
+    .offer {
+      background-color: #880e4f;
+      color: white;
+      text-align: center;
+      padding: 40px;
+      margin: 40px;
+      border-radius: 8px;
+    }
+
+    .offer h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .offer p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #f8bbd0;
+    }
+
+    .offer .code-box {
+      display: inline-block;
+      background-color: white;
+      color: #880e4f;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 24px;
+      border-radius: 4px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .offer .btn-white {
+      display: inline-block;
+      background-color: white;
+      color: #880e4f;
+      padding: 11px 26px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-left: 16px;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* ---- REVIEWS ---- */
+    .reviews {
+      padding: 50px 40px;
+      background-color: white;
+    }
+
+    .review-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .review-card {
+      background-color: #fff0f7;
+      border: 1px solid #f8bbd0;
+      border-radius: 8px;
+      padding: 20px;
+      width: 280px;
+    }
+
+    .review-card .stars {
+      color: #c2185b;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .review-card p {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .review-card .reviewer-name {
+      font-size: 13px;
+      font-weight: bold;
+      color: #880e4f;
+    }
+
+    .review-card .reviewer-city {
+      font-size: 11px;
+      color: #999;
+    }
+
+    /* ---- NEWSLETTER ---- */
+    .newsletter {
+      background-color: #fce4ec;
+      padding: 50px 40px;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-size: 22px;
+      color: #880e4f;
+      margin-bottom: 10px;
+    }
+
+    .newsletter p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 22px;
+    }
+
+    .newsletter form {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .newsletter input {
+      padding: 12px 16px;
+      border: 1px solid #f8bbd0;
+      border-right: none;
+      font-size: 14px;
+      width: 280px;
+      outline: none;
+    }
+
+    .newsletter button {
+      background-color: #c2185b;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .newsletter button:hover {
+      background-color: #880e4f;
+    }
+
+    /* ---- FEATURES ---- */
+    .features {
+      background-color: #880e4f;
+      display: flex;
+      justify-content: space-around;
+      padding: 36px 40px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .feature-box {
+      text-align: center;
+      color: white;
+      max-width: 180px;
+    }
+
+    .feature-box .icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .feature-box h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .feature-box p {
+      font-size: 12px;
+      color: #f8bbd0;
+      line-height: 1.5;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background-color: #3d0026;
+      color: #ccc;
+      padding: 40px 40px 20px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-col h4 {
+      color: white;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .footer-col ul li a:hover {
+      color: #f48fb1;
+    }
+
+    .footer-col p {
+      font-size: 13px;
+      line-height: 1.7;
+      max-width: 220px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #5c0033;
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-bottom p {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .pay-icons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pay-icons span {
+      background-color: #5c0033;
+      color: #ccc;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    Free delivery on orders above Rs. 499 &nbsp;|&nbsp; Use code GLOW20 for 20% off
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">GlowGirl</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Lips</a></li>
+      <li><a href="#">Eyes</a></li>
+      <li><a href="#">Skin</a></li>
+      <li><a href="#">Sale</a></li>
+    </ul>
+    <div class="nav-right">
+      <span>Search</span>
+      <span>Wishlist</span>
+      <span>Cart (3)</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Look Good,<br/>Feel Great!</h1>
+      <p>Shop the best makeup products for every skin tone and every mood. 100% cruelty free and affordable.</p>
+      <button class="btn">Shop Now</button>
+    </div>
+    <div class="hero-img">
+      💄
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories">
+    <h2 class="section-title">Shop By Category</h2>
+    <div class="cat-grid">
+      <div class="cat-box">
+        <div class="cat-icon">💋</div>
+        <p>Lips</p>
+      </div>
+      <div class="cat-box">
+        <div class="cat-icon">👁️</div>
+        <p>Eyes</p>
+      </div>
+      <div class="cat-box">
+        <div class="cat-icon">✨</div>
+        <p>Highlighter</p>
+      </div>
+      <div class="cat-box">
+        <div class="cat-icon">🌸</div>
+        <p>Blush</p>
+      </div>
+      <div class="cat-box">
+        <div class="cat-icon">🧴</div>
+        <p>Skincare</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products">
+    <h2 class="section-title">Our Bestsellers</h2>
+    <div class="prod-grid">
+
+      <div class="prod-card">
+        <div class="prod-img">💋</div>
+        <div class="prod-info">
+          <div class="brand">Fenty Beauty</div>
+          <div class="name">Lip Stain - Rose Pink</div>
+          <div>
+            <span class="price">Rs. 899</span>
+          </div>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img">🎨</div>
+        <div class="prod-info">
+          <div class="brand">Charlotte Tilbury</div>
+          <div class="name">Eyeshadow Palette</div>
+          <div>
+            <span class="old-price">Rs. 2500</span>
+            <span class="price">Rs. 1799</span>
+          </div>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img">💖</div>
+        <div class="prod-info">
+          <div class="brand">Rare Beauty</div>
+          <div class="name">Soft Pinch Blush</div>
+          <div>
+            <span class="price">Rs. 1250</span>
+          </div>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img">✨</div>
+        <div class="prod-info">
+          <div class="brand">MAC</div>
+          <div class="name">Strobe Cream Highlighter</div>
+          <div>
+            <span class="old-price">Rs. 1800</span>
+            <span class="price">Rs. 1080</span>
+          </div>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img">👄</div>
+        <div class="prod-info">
+          <div class="brand">NARS</div>
+          <div class="name">Orgasm Lip Gloss</div>
+          <div>
+            <span class="price">Rs. 1600</span>
+          </div>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img">🌸</div>
+        <div class="prod-info">
+          <div class="brand">Maybelline</div>
+          <div class="name">Sky High Mascara</div>
+          <div>
+            <span class="old-price">Rs. 799</span>
+            <span class="price">Rs. 559</span>
+          </div>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OFFER BANNER -->
+  <div class="offer">
+    <h2>Summer Sale is Live!</h2>
+    <p>Get up to 40% off on all makeup products. Limited time only.</p>
+    <div class="code-box">GLOW20</div>
+    <br/><br/>
+    <button class="btn-white">Shop the Sale</button>
+  </div>
+
+  <!-- REVIEWS -->
+  <section class="reviews">
+    <h2 class="section-title">What Our Customers Say</h2>
+    <div class="review-grid">
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"I ordered the Rare Beauty blush and it is amazing. The color is so pretty and it lasts all day!"</p>
+        <div class="reviewer-name">Priya Sharma</div>
+        <div class="reviewer-city">Mumbai</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"The Charlotte Tilbury palette is so good. I use it every single day. Worth every rupee!"</p>
+        <div class="reviewer-name">Ananya Gupta</div>
+        <div class="reviewer-city">Delhi</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★☆</div>
+        <p>"Delivery was fast and packaging was cute. The lip stain lasted for 8 hours. Will order again!"</p>
+        <div class="reviewer-name">Sneha Patel</div>
+        <div class="reviewer-city">Pune</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h2>Subscribe for Offers</h2>
+    <p>Get weekly deals and new arrivals directly in your inbox.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="feature-box">
+      <div class="icon">🚚</div>
+      <h4>Free Delivery</h4>
+      <p>On orders above Rs. 499</p>
+    </div>
+    <div class="feature-box">
+      <div class="icon">🔄</div>
+      <h4>Easy Returns</h4>
+      <p>7 day return policy</p>
+    </div>
+    <div class="feature-box">
+      <div class="icon">🔒</div>
+      <h4>Safe Payment</h4>
+      <p>100% secure checkout</p>
+    </div>
+    <div class="feature-box">
+      <div class="icon">💬</div>
+      <h4>24/7 Support</h4>
+      <p>We are always here to help</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>GlowGirl</h4>
+        <p>Makeup for every girl, every mood, every day. Cruelty free and affordable.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Lip Makeup</a></li>
+          <li><a href="#">Eye Makeup</a></li>
+          <li><a href="#">Skincare</a></li>
+          <li><a href="#">Sale</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>Bangalore, India</li>
+          <li>hello@glowgirl.in</li>
+          <li>+91 98765 43210</li>
+          <li>Mon-Sat 10am to 7pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>2026 GlowGirl Beauty. All rights reserved.</p>
+      <div class="pay-icons">
+        <span>UPI</span>
+        <span>VISA</span>
+        <span>Mastercard</span>
+        <span>PayTM</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
