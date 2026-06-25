@@ -1,6 +1,6 @@
 # GlowGirl Beauty Store
 
-A responsive e-commerce web interface for beauty products, built with HTML5 and CSS3.
+A responsive e-commerce web interface for beauty products, built with HTML and CSS.
 
 ## Key Features
 - Clean and modern user interface.
