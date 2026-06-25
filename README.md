@@ -9,5 +9,5 @@ A responsive e-commerce web interface for beauty products, built with HTML5 and 
 - Section for customer reviews and newsletter sign-up.
 
 ## Tech Stack
-- HTML5
-- CSS3
+- HTML
+- CSS
